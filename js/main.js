@@ -38,7 +38,7 @@ const posts = [
         "media": "https://unsplash.it/600/400?image=24",
         "author": {
             "name": "Luca Formicola",
-            "image": null
+            "image": "https://unsplash.it/300/300?image=30"
         },
         "likes": 56,
         "created": "2021-04-03"
@@ -96,3 +96,24 @@ posts.forEach(post => {
 
     
 });
+
+// Collegare i pulsanti like al file JS
+
+const likeIt = document.getElementsByClassName('like');
+// Ritorna una html collection
+
+const arrayLikeIt = [...likeIt];
+// Con l'uso dello spread operator si è convertita la html collection in un array di modo da poter usare l'addeventlistener tramite foreach
+
+arrayLikeIt.forEach(element => {
+    
+    element.addEventListener('click' , 
+        function(){
+            
+            element.classList.add('liked');
+    
+        }
+    );
+
+});
+

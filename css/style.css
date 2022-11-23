@@ -47,6 +47,20 @@ body {
     justify-content: space-between;
 }
 
+.like {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.like:hover {
+    background-color: #B2B2B2;
+}
+
+.liked {
+    color: #DC3535;
+}
 
 /* body {
     font-family: system-ui, sans-serif;
