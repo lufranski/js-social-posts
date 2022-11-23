@@ -60,7 +60,7 @@ const posts = [
 const wrapper = document.getElementById('container');
 
 // Stampare dinamicamente gli elementi dell'array nell'html
-posts.forEach(post => {
+posts.forEach((post, index) => {
 
     wrapper.innerHTML += 
     `
@@ -89,7 +89,7 @@ posts.forEach(post => {
                     <i class="fa-regular fa-heart"></i>
                     Like
                 </div>    
-                <div class="like-number" id=${addIds()}>
+                <div class="like-number" id="like-num-${generateIndex(index)}">
                     Piace a ${post.likes} persone
                 </div>
             </div>            
@@ -119,16 +119,19 @@ arrayLikeIt.forEach(element => {
             for(let i = 0; i < posts.length; i++){
 
                 posts[i].likes++;
+                
+                let id = i + 1;
 
-                console.log(posts[i]);
-                // const likeText = document.getElementsByClassName('like-number');
+                let likeText = document.getElementById('like-num-'+id);
 
-                // const arrayLikeText = [...likeText];
+                likeText.innerHTML = `Piace a ${posts[i].likes} persone`
 
-                // console.log(arrayLikeText);
+                const arrOfIds = [];
+                
+                arrOfIds.push(id);
 
-                // arrayLikeText.innerHTML = `Piace a ${posts[i].likes} persone`
-
+                console.log(arrOfIds);
+            
             }
             
         }    
@@ -138,17 +141,11 @@ arrayLikeIt.forEach(element => {
 
 
 
+
+
 // Functions
-function addIds(){
+function generateIndex(index) {
+    
+    return index + 1;
 
-    let likeNumber = document.getElementsByClassName('like-number');
-
-    let id = 1;
-
-    for (let x = 0; x < likeNumber.length; x++){
-
-        likeNumber[x].id = 'likenumber' + id++;
-
-    }
-
-}
+} 
