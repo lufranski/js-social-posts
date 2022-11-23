@@ -89,7 +89,9 @@ posts.forEach(post => {
                     <i class="fa-regular fa-heart"></i>
                     Like
                 </div>    
-                Piace a ${post.likes} persone
+                <div class="like-number" id=${addIds()}>
+                    Piace a ${post.likes} persone
+                </div>
             </div>            
         </div>
     `;
@@ -104,6 +106,8 @@ const likeIt = document.getElementsByClassName('like');
 
 const arrayLikeIt = [...likeIt];
 // Con l'uso dello spread operator si è convertita la html collection in un array di modo da poter usare l'addeventlistener tramite foreach
+// console.log(arrayLikeIt);
+
 
 arrayLikeIt.forEach(element => {
     
@@ -111,9 +115,40 @@ arrayLikeIt.forEach(element => {
         function(){
             
             element.classList.add('liked');
-    
-        }
+
+            for(let i = 0; i < posts.length; i++){
+
+                posts[i].likes++;
+
+                console.log(posts[i]);
+                // const likeText = document.getElementsByClassName('like-number');
+
+                // const arrayLikeText = [...likeText];
+
+                // console.log(arrayLikeText);
+
+                // arrayLikeText.innerHTML = `Piace a ${posts[i].likes} persone`
+
+            }
+            
+        }    
     );
 
 });
 
+
+
+// Functions
+function addIds(){
+
+    let likeNumber = document.getElementsByClassName('like-number');
+
+    let id = 1;
+
+    for (let x = 0; x < likeNumber.length; x++){
+
+        likeNumber[x].id = 'likenumber' + id++;
+
+    }
+
+}
