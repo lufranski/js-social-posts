@@ -114,7 +114,7 @@ arrayLikeIt.forEach(element => {
     element.addEventListener('click' , 
         function(){
             
-            element.classList.add('liked');
+            element.classList.toggle('liked');
 
             for(let i = 0; i < posts.length; i++){
 
